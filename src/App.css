@@ -11,43 +11,4 @@ body{
   width: 90%;
   margin: 0 auto;
 }
-.header{
-  margin-top: 5px;
-  grid-area: header;
-  background-color: #ffffff;
-  border: 2px solid black;
-  display: inline-flex;
-}
-.nav{
-  grid-area: nav;
-  border-radius: 5px;
-  border: 2px solid black;
-  background-color: #ffffff;
-}
-.profile{
-  grid-area: main;
-  border: 2px solid black;
-  background-color: #ffffff;
-}
-.logo{
-  width: 5%;
-  margin-left:4%;
-}
-.main-image{
-  width: 100%;
-}
-.ul-list{
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0;
-}
-.ul-list a{
-  color: rgba(0, 0, 0, 0.8);
-  text-decoration: none;
-}
 
-.avatar img{
-  width: 15%;
-}

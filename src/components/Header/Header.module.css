@@ -1,0 +1,11 @@
+.header {
+  margin-top: 5px;
+  grid-area: header;
+  background-color: #ffffff;
+  border: 2px solid black;
+  display: inline-flex;
+}
+.logo {
+  width: 5%;
+  margin-left: 4%;
+}
