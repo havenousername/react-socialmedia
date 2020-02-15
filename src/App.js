@@ -8,8 +8,8 @@ import Profile from './components/Profile/Profile';
 const App =  ()=> {
   return (
     <div className="app">
+      <Header />
       <div className="app-wrapper">
-        <Header />
         <Nav />
         <Profile />
       </div>
