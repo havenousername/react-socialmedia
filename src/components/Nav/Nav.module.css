@@ -3,6 +3,7 @@
   border-radius: 5px;
   /* border: 2px solid black; */
   background-color: #ffffff;
+  padding: 20%;
 }
 
 .ullist {
@@ -14,9 +15,9 @@
 }
 
 .link{
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0,0,0,0.7);
   text-decoration: none;
 }
-.active{
-  color: goldenrod;
+.link.active{
+  color: aquamarine;
 }

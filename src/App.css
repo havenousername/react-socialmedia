@@ -6,12 +6,14 @@ body{
 }
 .app-wrapper{
   display: grid;
-  grid-template-areas: "header header header" 
-                        "nav main main";
-  grid-template-rows: 50px 1fr;
+  grid-template-areas: "nav main main";
+  /*grid-template-rows: 50px 1fr;*/
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
   width: 90%;
   margin: 0 auto;
 }
-
+.app-wrapper_content{
+  grid-area: main;
+  background-color: #42526C;
+}
