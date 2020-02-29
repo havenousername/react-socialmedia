@@ -3,13 +3,13 @@ import styles from './Profile.module.css';
 import MyPost from '../Profile/MyPosts/MyPost'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <main className={styles.profile}>
             <ProfileInfo/>
-            <MyPost/>
+            <MyPost postData={props}/>
         </main>
     )
-}
+};
 
 export default Profile;

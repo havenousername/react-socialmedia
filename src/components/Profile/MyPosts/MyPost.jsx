@@ -2,12 +2,8 @@ import React from 'react';
 import styles from './MyPost.module.css';
 import Post from './Post/Post';
 
-const MyPost = () => {
-
-    let postData = [{header: 'Wow! New Amazing Feature', id: 0, likesCount: 12},
-        {header: 'Here is Jonhy!', likesCount: 100}];
-
-    let postDataMap = postData.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
+const MyPost = (props) => {
+    let postDataMap = props.postData.state.postData.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
 
     return (
         <div className={styles.mypost}>
