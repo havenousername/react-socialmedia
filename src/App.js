@@ -11,15 +11,16 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (objects) => {
+    console.log(objects.state.navPage);
     return (
         <BrowserRouter>
             <div className="app">
                 <Header/>
                 <div className="app-wrapper">
-                    <Nav/>
+                    <Nav state={objects.state.navPage}/>
                     <div className="app-wrapper_content">
                         <Route path={"/dialogs"} render={(props) => <Dialogs {...props} state={objects.state.messagesPage}/>}/>
-                        <Route path={"/profile"}  render={(props) => <Profile {...props} state ={objects.state.profilePage} />}/>
+                        <Route path={"/profile"}  render={(props) => <Profile {...props} state ={objects.state.profilePage} addPost={objects.addPost}/>}/>
                         <Route path={"/music"}  render={()=> <Music />}/>
                         <Route path={"/news"}  render={()=> <News />}/>
                         <Route path={"/settings"}  render={()=> <Settings />}/>

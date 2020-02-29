@@ -16,3 +16,40 @@
     color: white;
     text-decoration: none;
 }
+.block{
+    display: flex;
+    /*flex-direction: column;*/
+    margin-bottom: 10px;
+}
+.text{
+    flex-grow: 1;
+}
+.divimg{
+    order: -1;
+    display: inline-block;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.image{
+    display: inline;
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+    margin-left: -25%;
+}
+.message{
+    padding-left: 5%;
+    margin-top: 10px;
+}
+.names{
+    color: aquamarine;
+    margin-top: 5px;
+    padding-left: 5%;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+}
