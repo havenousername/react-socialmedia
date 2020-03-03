@@ -11,6 +11,8 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (objects) => {
+    // let heri = Symbol().toString();
+
     return (
         <BrowserRouter>
             <div className="app">
@@ -19,12 +21,10 @@ const App = (objects) => {
                     <Nav state={objects.state.navPage}/>
                     <div className="app-wrapper_content">
                         <Route path={"/dialogs"} render={(props) => <Dialogs {...props} dialog={objects.state.messagesPage}
-                                                                                        addMessage={objects.addMessage}
-                                                                                        updateNewMessage={objects.updateNewMessagePost}/>}/>
+                                                                                        dispatch={objects.dispatch}/>}/>
                         <Route path={"/profile"}  render={(props) => <Profile {...props}
                                                                               profilePage={objects.state.profilePage}
-                                                                              addPost={objects.addPost}
-                                                                              updateNewPostText={objects.updateNewTextPost}/>}/>
+                                                                              dispatch={objects.dispatch}/> }/>
                         <Route path={"/music"}  render={()=> <Music />}/>
                         <Route path={"/news"}  render={()=> <News />}/>
                         <Route path={"/settings"}  render={()=> <Settings />}/>
