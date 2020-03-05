@@ -11,10 +11,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (objects) => {
-    // let heri = Symbol().toString();
-
     return (
-        <BrowserRouter>
             <div className="app">
                 <Header/>
                 <div className="app-wrapper">
@@ -31,7 +28,6 @@ const App = (objects) => {
                     </div>
                 </div>
             </div>
-        </BrowserRouter>
     );
 };
 

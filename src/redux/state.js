@@ -86,8 +86,8 @@ let store = {
     // },
 
     dispatch(action){  // {type: 'ADD-POST'}
-        if (action.type == 'ADD-POST'){
-            let newPost = {
+        if (action.type === 'ADD-POST'){
+            let  newPost = {
                 [id]: Math.floor((Math.random()*1000)),
                 header: this._state.profilePage.newPostText,
                 likesCount: 0,
@@ -96,12 +96,12 @@ let store = {
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
         }
-        else if(action.type == 'UPDATE-NEW-POST-TEXT'){
+        else if(action.type === 'UPDATE-NEW-POST-TEXT'){
             this._state.profilePage.newPostText = action.text;
             this._callSubscriber(this._state);
         }
 
-        if (action.type == 'ADD-MESSAGE'){
+        if (action.type === 'ADD-MESSAGE'){
             let newMessage = {
                 [id]: Math.floor((Math.random()*1000)),
                 names: info._dialogsNames[0],
@@ -112,24 +112,18 @@ let store = {
             this._state.messagesPage.newMessageText = '';
             this._callSubscriber(this._state);
         }
-        else if(action.type == 'UPDATE-MESSAGE-TEXT'){
+        else if(action.type === 'UPDATE-MESSAGE-TEXT'){
             this._state.messagesPage.newMessageText = action.newMessage;
             this._callSubscriber(this._state);
         }
     }
 };
 
-export const addPostActionCreator = ()=>{
-    return{
-        type: addPost
-    }
-};
+export const addPostActionCreator = () => ({type: addPost});
 
 export const updateNewPostActionCreator = (text) => {
-    return {
-        type: updatePost,
-        text: text
-    }
+        return {type: updatePost,
+        text: text}
 };
 
 // let rerenderEntireTree = () => {

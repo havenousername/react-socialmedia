@@ -7,7 +7,7 @@ const Profile = (props) => {
     return (
         <main className={styles.profile}>
             <ProfileInfo/>
-            <MyPost postData={props.profilePage.postData}
+            <MyPost postData={props.profilePage}
                     dispatch={props.dispatch}/>
         </main>
     )

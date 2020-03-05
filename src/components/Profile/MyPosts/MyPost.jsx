@@ -7,7 +7,8 @@ import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/s
 // const onInput
 
 const MyPost = (props) => {
-    let postDataMap = props.postData.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
+    // debugger;
+    let postDataMap = props.postData.postData.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
 
     let newPostElement = React.createRef();
 
@@ -23,7 +24,7 @@ const MyPost = (props) => {
         <div className={styles.mypost}>
             <h3>My posts</h3>
             <div className={styles.quote}>
-                <textarea ref={newPostElement} onChange={onInputChange} value={props.newPostText} />
+                <textarea ref={newPostElement} onChange={onInputChange} value={props.postData. newPostText} />
                 <button onClick={addPost}>Add Post</button>
             </div>
             <div className={styles.posts}>
@@ -32,5 +33,6 @@ const MyPost = (props) => {
         </div>
     )
 };
+
 
 export default MyPost;
