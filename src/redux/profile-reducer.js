@@ -1,7 +1,15 @@
 const addPost ='ADD-POST';
 const updatePost = 'UPDATE-NEW-POST-TEXT';
 
-const profileReducer = (state,action) => {
+let id = Symbol();
+let inicialState = {
+    postData:
+        [{[id]:Math.floor((Math.random()*1000)), header: 'Wow! New Amazing Feature', likesCount: 12},
+            {[id]:Math.floor((Math.random()*1000)), header: 'Here is Jonhy!', likesCount: 100}],
+    newPostText: ''
+};
+
+const profileReducer = (state = inicialState,action) => {
     switch (action.type) {
         case addPost:
             let  newPost = {
