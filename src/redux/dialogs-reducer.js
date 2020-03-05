@@ -10,8 +10,30 @@ let info ={
         'https://images.unsplash.com/photo-1559582865-775a8d1aa21c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1492&q=80'],
 };
 
-const dialogsReducer = (state,action) => {
-    // console.log(action.text);
+let id = Symbol();
+let inicial = {
+    messagesPage: {
+        dialogsData: [{[id]: Math.floor((Math.random()*1000)), name: 'Vasea'},
+            {[id]: Math.floor((Math.random()*1000)), name: 'Dimich'},
+            {[id]: Math.floor((Math.random()*1000)), name: 'Kuzma'},
+            {[id]: Math.floor((Math.random()*1000)), name: 'Leonti'},
+            {[id]: Math.floor((Math.random()*1000)), name: 'Vlad'}],
+        messagesData: [{id:Math.floor((Math.random()*1000)), names: info._dialogsNames[0], message: 'Hey man', image: info._dialogsImage[0]},
+            {[id]: Math.floor((Math.random()*1000)), names: info._dialogsNames[1], message: 'Hello,there', image: info._dialogsImage[1]},
+            {[id]: Math.floor((Math.random()*1000)), names: info._dialogsNames[0], message: 'How are u?', image: info._dialogsImage[0]},
+            {[id]: Math.floor((Math.random()*1000)), names: info._dialogsNames[1], message: 'Nice nigga!', image: info._dialogsImage[1]},
+            {[id]: Math.floor((Math.random()*1000)), names: info._dialogsNames[0], message: 'Why are u gay?', image: info._dialogsImage[0]},
+            {
+                [id]: Math.floor((Math.random()*1000)),
+                names: info._dialogsNames[1],
+                message: 'Because I am president mutherfucker!',
+                image: info._dialogsImage[1]
+            }],
+        newMessageText: ''
+    }
+};
+const dialogsReducer = (state = inicial, action) => {
+    console.log(action);
     switch (action.type) {
         case addMessage:
             let newMessage = {
@@ -32,9 +54,9 @@ const dialogsReducer = (state,action) => {
 };
 
 export const addTextActionCreator = () => ({type: addMessage});
-export const updateNewMessageActionCreator = (text) => {
+export const updateNewMessageActionCreator = (newest) => {
     return {type: updateMessage,
-        text: text}
+        text: newest}
 };
 
 export default dialogsReducer;

@@ -5,19 +5,20 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav'
 import Profile from './components/Profile/Profile';
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (objects) => {
+    // debugger;
     return (
             <div className="app">
                 <Header/>
                 <div className="app-wrapper">
                     <Nav state={objects.state.navPage}/>
                     <div className="app-wrapper_content">
-                        <Route path={"/dialogs"} render={(props) => <Dialogs {...props} dialog={objects.state.messagesPage}
+                        <Route path={"/dialogs"} render={(props) => <Dialogs {...props} dialog={objects.state.messagesPage.messagesPage}
                                                                                         dispatch={objects.dispatch}/>}/>
                         <Route path={"/profile"}  render={(props) => <Profile {...props}
                                                                               profilePage={objects.state.profilePage}
