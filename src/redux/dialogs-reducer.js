@@ -11,7 +11,7 @@ let info ={
 };
 let id = Symbol();
 
-let inicicialState = {
+let inicialState = {
     dialogsData: [{[id]: Math.floor((Math.random()*1000)), name: 'Vasea'},
         {[id]: Math.floor((Math.random()*1000)), name: 'Dimich'},
         {[id]: Math.floor((Math.random()*1000)), name: 'Kuzma'},
@@ -31,7 +31,7 @@ let inicicialState = {
     newMessageText: ''
 };
 
-const dialogsReducer = (state = inicicialState,action) => {
+const dialogsReducer = (state = inicialState,action) => {
     // console.log(action.text);
     switch (action.type) {
         case addMessage:

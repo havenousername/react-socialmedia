@@ -1,40 +1,24 @@
 import React from 'react';
-import styles from './MyPost.module.css';
-import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile -reducer";
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile-reducer";
+import MyPost from "./MyPost";
 
 
 // const onInput
 
-const MyPost = (props) => {
-    // debugger;
-    let postDataMap = props.postData.postData.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
-
-    let newPostElement = React.createRef();
-
+const MyPostContainer = (props) => {
     const addPost = () =>{
-        // props.addPost();
-        props.dispatch(addPostActionCreator());
+        props.store.dispatch(addPostActionCreator());
     };
 
-    const onInputChange = () => {
-        let text = newPostElement.current.value;
-        // props.updateNewPostText(text);
-        props.dispatch(updateNewPostActionCreator(text));
+    const onInputChange = (text) => {
+        props.store.dispatch(updateNewPostActionCreator(text));
     };
     return (
-        <div className={styles.mypost}>
-            <h3>My posts</h3>
-            <div className={styles.quote}>
-                <textarea ref={newPostElement} onChange={onInputChange} value={props.postData. newPostText} />
-                <button onClick={addPost}>Add Post</button>
-            </div>
-            <div className={styles.posts}>
-                {postDataMap}
-            </div>
-        </div>
+        <MyPost updateNewPostText={onInputChange} onAddPost={addPost}
+                posts={props.store.state.profilePage.postData}
+                newPostsText={props.store.state.profilePage.newPostText}/>
     )
 };
 
 
-export default MyPost;
+export default MyPostContainer;
