@@ -5,22 +5,20 @@ import Message from "./Message/MessageItem";
 import {addTextActionCreator, updateNewMessageActionCreator} from "../../redux/dialogs-reducer";
 
 const Dialogs = (dialogsObject) => {
-    let messagesDataMap = dialogsObject.dialog.messagesData.map( (ms) => {
+    let messagesDataMap = dialogsObject.messages.map( (ms) => {
         return <Message key={ms.id} message={ms.message} image={ms.image} name={ms.name}/>
     });
-    let dialogsDataMap = dialogsObject.dialog.dialogsData.map(dl =>  <Dialog key={dl.id} name={dl.name}/>);
+    let dialogsDataMap = dialogsObject.dialogs.map(dl =>  <Dialog key={dl.id} name={dl.name}/>);
 
     let newMessageElement = React.createRef();
 
     const addMessage = () => {
-        dialogsObject.dispatch(addTextActionCreator());
+        dialogsObject.onAddMessage();
     };
 
     const onInputChange = () => {
-        console.log(newMessageElement.current.value);
         let newest = newMessageElement.current.value;
-        debugger;
-        dialogsObject.dispatch(updateNewMessageActionCreator(newest));
+        dialogsObject.onInputMessage(newest);
     };
 
     return (
@@ -32,7 +30,7 @@ const Dialogs = (dialogsObject) => {
                 <div className={s.messages}>
                     {messagesDataMap}
                     <div className={s.input}>
-                        <textarea ref={newMessageElement}  onChange={onInputChange} value={dialogsObject.dialog.newMessageText}/>
+                        <textarea ref={newMessageElement} className={s.text} onChange={onInputChange} value={dialogsObject.newMessage}/>
                         <button className={s.enter} onClick={addMessage}>Enter</button>
                     </div>
                 </div>

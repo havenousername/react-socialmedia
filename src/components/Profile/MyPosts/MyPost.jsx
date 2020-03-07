@@ -1,29 +1,26 @@
 import React from 'react';
 import styles from './MyPost.module.css';
 import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile-reducer";
-
-
-// const onInput
+import s from "../../Dialogs/Dialogs.module.css";
 
 const MyPost = (props) => {
-    let postDataMap = props.postData.postData.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
+    let postDataMap = props.posts.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
 
     let newPostElement = React.createRef();
 
     const addPost = () =>{
-        props.dispatch(addPostActionCreator());
+        props.onAddPost();
     };
 
     const onInputChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostActionCreator(text));
+        props.updateNewPostText(text);
     };
     return (
         <div className={styles.mypost}>
             <h3>My posts</h3>
             <div className={styles.quote}>
-                <textarea ref={newPostElement} onChange={onInputChange} value={props.postData.newPostText} />
+                <textarea ref={newPostElement} className={s.text} onChange={onInputChange} value={props.newPostsText}/>
                 <button onClick={addPost}>Add Post</button>
             </div>
             <div className={styles.posts}>
