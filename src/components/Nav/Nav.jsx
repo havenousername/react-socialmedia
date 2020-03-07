@@ -5,7 +5,7 @@ import NavItem from "./NavItem/NavItem";
 
 
 const Nav = (props) => {
-  let friendsDataMap = props.state.navFriends.map((fr) => <Friends key={fr.id} name={fr.name} image={fr.image} />);
+    let friendsDataMap = props.navPage.navFriends.map((fr) => <Friends key={fr.id} name={fr.name} image={fr.image} />);
 
   return (
     <nav className={styles.nav}>

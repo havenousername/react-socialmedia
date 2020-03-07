@@ -9,6 +9,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import NavContainer from "./components/Nav/NavContainer";
 
 const App = (objects) => {
     // debugger;
@@ -16,10 +17,10 @@ const App = (objects) => {
             <div className="app">
                 <Header/>
                 <div className="app-wrapper">
-                    <Nav state={objects.state.navPage}/>
+                    <NavContainer/>
                     <div className="app-wrapper_content">
-                        <Route path={"/dialogs"} render={(props) => <DialogsContainer {...props} store={objects}/>}/>
-                        <Route path={"/profile"}  render={(props) => <Profile {...props} store={objects}/> }/>
+                        <Route path={"/dialogs"} render={(props) => <DialogsContainer />}/>
+                        <Route path={"/profile"}  render={(props) => <Profile />}/>
                         <Route path={"/music"}  render={()=> <Music />}/>
                         <Route path={"/news"}  render={()=> <News />}/>
                         <Route path={"/settings"}  render={()=> <Settings />}/>

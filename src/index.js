@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "./StoreContext";
 // import {addPost} from './redux/state';
 // import {updateNewPostText} from "./redux/state";
 // import {addMessage} from "./redux/state";
@@ -14,7 +15,9 @@ import {BrowserRouter} from "react-router-dom";
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)} />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </BrowserRouter>, document.getElementById('root'));
 };
 
