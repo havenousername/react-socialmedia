@@ -4,7 +4,7 @@ import Post from './Post/Post';
 import s from "../../Dialogs/Dialogs.module.css";
 
 const MyPost = (props) => {
-    let postDataMap = props.posts.map(pt => <Post header={pt.header} likes={pt.likesCount}/>);
+    let postDataMap = props.posts.map(pt => <Post header={pt.header} likes={pt.likesCount} key={pt.id}/>);
 
     let newPostElement = React.createRef();
 

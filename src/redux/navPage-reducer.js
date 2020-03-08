@@ -1,4 +1,3 @@
-let id = Symbol();
 let info = {
     _friendsNames: ['Anatolii', 'Katea', 'Petr'],
     _friendsImages: ['https://images.unsplash.com/photo-1541418950054-c12804e149d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
@@ -8,13 +7,13 @@ let info = {
 
 
 let inicialState = {
-    navFriends: [{[id]: Math.floor((Math.random()*1000)), name: info._friendsNames[0], image: info._friendsImages[0]},
-        {[id]: Math.floor((Math.random()*1000)), name: info._friendsNames[1], image: info._friendsImages[1]},
-        {[id]: Math.floor((Math.random()*1000)), name: info._friendsNames[2], image: info._friendsImages[2]},],
+    navFriends: [{id: Math.floor((Math.random()*1000)), name: info._friendsNames[0], image: info._friendsImages[0]},
+        {id: Math.floor((Math.random()*1000)), name: info._friendsNames[1], image: info._friendsImages[1]},
+        {id: Math.floor((Math.random()*1000)), name: info._friendsNames[2], image: info._friendsImages[2]},],
 };
 
 
-const navPageReducer = (state = inicialState,action) => {
+const navPageReducer = (state = inicialState) => {
     return state;
 };
 export default navPageReducer;

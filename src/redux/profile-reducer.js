@@ -1,28 +1,30 @@
 const addPost ='ADD-POST';
 const updatePost = 'UPDATE-NEW-POST-TEXT';
 
-let id = Symbol();
+
 let inicialState = {
     postData:
-        [{[id]:Math.floor((Math.random()*1000)), header: 'Wow! New Amazing Feature', likesCount: 12},
-            {[id]:Math.floor((Math.random()*1000)), header: 'Here is Jonhy!', likesCount: 100}],
+        [{id:Math.floor((Math.random()*1000)), header: 'Wow! New Amazing Feature', likesCount: 12},
+            {id:Math.floor((Math.random()*1000)), header: 'Here is Jonhy!', likesCount: 100}],
     newPostText: ''
 };
 
 const profileReducer = (state = inicialState,action) => {
     switch (action.type) {
-        case addPost:
+        case addPost: {
             let  newPost = {
                 id: Math.floor((Math.random()*1000)),
                 header: state.newPostText,
                 likesCount: 0,
             };
-            state.postData.push(newPost);
-            state.newPostText = '';
-            return state;
-        case updatePost:
-            state.newPostText = action.text;
-            return state;
+            return {...state,
+                postData: [...state.postData, newPost],
+                newPostText: ''};
+            }
+        case updatePost:{
+             return {...state,
+                newPostText: action.text};
+            }
         default:
             return state;
     }

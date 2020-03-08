@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Dialog from "./Dialog/DialogItem";
 import Message from "./Message/MessageItem";
-import {addTextActionCreator, updateNewMessageActionCreator} from "../../redux/dialogs-reducer";
+
 
 const Dialogs = (dialogsObject) => {
     let messagesDataMap = dialogsObject.messages.map( (ms) => {
